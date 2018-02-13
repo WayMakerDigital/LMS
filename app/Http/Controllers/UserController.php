@@ -51,6 +51,14 @@ class UserController extends Controller
     
    }
 
+   public function getAllUsers()
+   {
+    $users = User::all();
+    
+       return response()->json(['data'=>$users, 'status_code'=>200]);
+
+   }
+
    public function getUserProfile()
    {  
     $user = Auth::user();
