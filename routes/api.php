@@ -24,4 +24,7 @@ Route::prefix('v1')->group(function () {
 
 Route::group(['middleware'=>'auth:api', 'prefix'=>'v1'], function(){
  Route::get('profile', 'UserController@getUserProfile');
+ Route::put('profile/edit', 'UserController@editUserProfile');
+ Route::post('logout', 'UserController@logout');
+ Route::post('profile/password/edit', 'UserController@changeUserPassword');
 });
