@@ -51,6 +51,14 @@ class UserController extends Controller
     
    }
 
+   public function getAllUsers()
+   {
+    $users = User::all();
+    
+       return response()->json(['data'=>$users, 'status_code'=>200]);
+
+   }
+
    public function getUserProfile()
    {  
     $user = Auth::user();
@@ -105,8 +113,8 @@ class UserController extends Controller
     public function changeUserPassword(Request $request)
     {
      
-     $user_details = Auth::user();
-     $user_id = $user_details->id;
+    // $user_details = Auth::user();
+     $user_id = Auth::id();
 
     $validator = Validator::make($request->all(), [
     'password'=>'required|min:5',
