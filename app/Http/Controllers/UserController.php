@@ -19,11 +19,12 @@ class UserController extends Controller
         'last_name'=> 'required|min:5',
          'username'=> 'required',
          'email'=>'required|unique:users|email|max:255',
-         'password'=>'required'
+         'password'=>'required|min:5',
+         'confirm_password'=> 'required|same:password'
 ]);
       if($validator->fails())
       {
-      	return response()->json(['error'=>$validator->errors()], 401);
+      	return response()->json(['error'=>$validator->errors()], 400);
       }
       $input = $request->all();
       $input['password'] = bcrypt($input['password']);
@@ -31,7 +32,7 @@ class UserController extends Controller
       $success['token'] = $user->createToken('Laravel')->accessToken;
       $success[] = $user;
 
-      return response()->json(['data'=>$success, 'status_code'=>200]);
+      return response()->json(['data'=>$success, 'status_code'=>201]);
 
    }
 
@@ -70,7 +71,7 @@ class UserController extends Controller
 ]);
       if($validator->fails())
       {
-      	return response()->json(['error'=>$validator->errors()], 401);
+      	return response()->json(['error'=>$validator->errors(), 'status_code'=>400]);
       }
 
        $input = $request->all();
@@ -109,17 +110,17 @@ class UserController extends Controller
 
     $validator = Validator::make($request->all(), [
     'password'=>'required|min:5',
-    'check_password'=> 'required|same:password',
+    'confirm_password'=> 'required|same:password',
 ]);
       if($validator->fails())
       {
-      	return response()->json(['error'=>$validator->errors()], 401);
+      	return response()->json(['error'=>$validator->errors()], 400);
       }
 
        $input = $request->all();
        $user = User::where('id', $user_id)->update($input);
 
-      return response()->json(['status_code'=>200]);
+      return response()->json(['status_message'=>'Password updated successfully', 'status_code'=>200]);
 
     }
 
