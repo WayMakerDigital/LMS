@@ -15,12 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', 'AdminController@getAdminLogin');
-Route::post('admin/login', 'AdminController@adminAuth')->name('login.admin');
-Route::get('/admin/create', 'AdminController@createAdmin');
-Route::post('/admin/register', 'AdminController@registerAdmin')->name('new.admin');
 
-Route::group(['middleware'=>['admin']], function(){
-   Route::get('admin/dashboard', 'AdminController@getAdminDashbboard');
-   Route::get('admin/logout', 'AdminController@logout');
+//Administrator routes
+
+Route::get('admin', 'Admin\AdminController@getAdminLogin');
+Route::post('admin/login', 'Admin\AdminController@adminAuth')->name('login.admin');
+Route::get('/admin/create', 'Admin\AdminController@createAdmin');
+Route::post('/admin/register', 'Admin\AdminController@registerAdmin')->name('new.admin');
+
+Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
+   Route::get('dashboard', 'Admin\AdminController@getAdminDashbboard');
+   Route::get('logout', 'Admin\AdminController@logout');
+   Route::get('course/create', 'Admin\CourseController@create');
+   Route::get('courses', 'Admin\CourseController@index');
+   Route::post('courses', 'Admin\CourseController@store')->name('upload.course');
+   Route::get('courses/{id}/edit', 'Admin\CourseController@edit');
+   Route::put('courses', 'Admin\CourseController@update');
+   Route::delete('courses', 'Admin\CourseController@delete');
 });
+

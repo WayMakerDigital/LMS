@@ -33,8 +33,8 @@
 							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Courses</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPag" class="collapse ">
 								<ul class="nav">
-									<li><a href="" class="">Create Courses</a></li>
-									<li><a href="" class="">All Courses</a></li>
+									<li><a href="/admin/course/create" class="">Create Courses</a></li>
+									<li><a href="/admin/courses" class="">All Courses</a></li>
 								</ul>
 							</div>
 						</li>
