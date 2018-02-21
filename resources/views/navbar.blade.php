@@ -33,8 +33,17 @@
 							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Courses</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPag" class="collapse ">
 								<ul class="nav">
-									<li><a href="/admin/course/create" class="">Create Courses</a></li>
+									<li><a href="/admin/course/create" class="">Create Course</a></li>
 									<li><a href="/admin/courses" class="">All Courses</a></li>
+								</ul>
+							</div>
+						</li>
+							<li>
+							<a href="#subPa" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Modules</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPa" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/module/create" class="">Create Module</a></li>
+									<li><a href="/admin/modules" class="">All Modules</a></li>
 								</ul>
 							</div>
 						</li>

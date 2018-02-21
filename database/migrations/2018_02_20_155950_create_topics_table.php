@@ -15,13 +15,13 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lesson_id')->unsigned();
+            $table->integer('module_id')->unsigned();
             $table->string('title');
             $table->longText('vimeo_url');
             $table->timestamps();
 
-            $table->foreign('lesson_id')
-                  ->references('id')->on('lessons')
+            $table->foreign('module_id')
+                  ->references('id')->on('modules')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
         });

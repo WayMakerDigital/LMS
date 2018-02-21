@@ -27,8 +27,7 @@ class CourseRequest extends FormRequest
         return [
             'title' => 'required|min:3',
             'description' =>'required|min:5',
-            'course_image' =>'required|image',
-            'price' =>'required'
+            'course_price' =>'required',
         ];
     }
 }

@@ -29,8 +29,14 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('course/create', 'Admin\CourseController@create');
    Route::get('courses', 'Admin\CourseController@index');
    Route::post('courses', 'Admin\CourseController@store')->name('upload.course');
-   Route::get('courses/{id}/edit', 'Admin\CourseController@edit');
-   Route::put('courses', 'Admin\CourseController@update');
-   Route::delete('courses', 'Admin\CourseController@delete');
+   Route::get('course/{id}/edit', 'Admin\CourseController@edit')->name('edit.course');
+   Route::put('course/{id}/update', 'Admin\CourseController@update')->name('update.course');
+   Route::delete('courses/{id}', 'Admin\CourseController@delete')->name('destroy.course');
+   Route::get('module/create', 'Admin\ModuleController@create');
+   Route::get('modules', 'Admin\ModuleController@index');
+   Route::post('modules', 'Admin\ModuleController@store')->name('upload.module');
+   Route::get('module/{id}/edit', 'Admin\ModuleController@edit')->name('edit.module');
+   Route::put('module/{id}/update', 'Admin\ModuleController@update')->name('update.module');
+   Route::delete('modules/{id}', 'Admin\ModuleController@delete')->name('destroy.module');
 });
 
