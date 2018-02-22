@@ -6,9 +6,17 @@
 				<div class="container-fluid">
 					<h3 class="page-title">Topics</h3>
 					  @if (session('info'))
-                         <div class="alert alert-success">
-                         {{ session('info')}}
-                          </div>
+                                <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+                    <strong>{{ session('info')}}</strong>
+                </div>
+            </div>
+
+        </div>
                            @endif
 					<div class="row">
 						<div class="col-md-6">
