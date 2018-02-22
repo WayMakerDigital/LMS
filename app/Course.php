@@ -12,4 +12,19 @@ class Course extends Model
     {
     	return $this->hasMany('App\Module');
     }
+
+    public function scopePaid($query)
+    {
+    	return $query->where('free_course', 0);
+    }
+
+    public function scopeFree($query)
+    {
+      return $query->where('free_course', 1);
+    }
+
+       public function scopePublished($query)
+    {
+      return $query->where('published', 1);
+    }
 }
