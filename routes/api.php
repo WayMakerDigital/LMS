@@ -18,14 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
-	Route::post('register', 'UserController@register');
-	Route::post('login', 'UserController@login');
-	Route::get('users', 'UserController@getAllUsers');
+	Route::post('register', 'API\UserController@register');
+	Route::post('login', 'API\UserController@login');
+	Route::get('users', 'API\UserController@getAllUsers');
 });
 
 Route::group(['middleware'=>'auth:api', 'prefix'=>'v1'], function(){
- Route::get('profile', 'UserController@getUserProfile');
- Route::put('profile/edit', 'UserController@editUserProfile');
- Route::post('logout', 'UserController@logout');
- Route::post('profile/password/edit', 'UserController@changeUserPassword');
+ Route::get('profile', 'API\UserController@getUserProfile');
+ Route::put('profile/edit', 'API\UserController@editUserProfile');
+ Route::post('logout', 'API\UserController@logout');
+ Route::post('profile/password/edit', 'API\UserController@changeUserPassword');
 });

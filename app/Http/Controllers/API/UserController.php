@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
 
    public function register(Request $request)
    {
+      /**
+       This endpoint registers a new user
+       */
+
    	  //perform validation
       $validator = Validator::make($request->all(), [
         'first_name'=>'required|min:5',
@@ -38,6 +43,10 @@ class UserController extends Controller
 
    public function login(Request $request)
    {
+       /**
+       This endpoint logins a user
+       */
+
    	//try logging in user
     if(Auth::attempt(['email'=>$request->input('email'), 'password'=> $request->input('password')])){
       $user = Auth::user();
@@ -53,6 +62,10 @@ class UserController extends Controller
 
    public function getAllUsers()
    {
+      /**
+       This endpoint fetches all user
+       */
+
     $users = User::all();
     
        return response()->json(['data'=>$users, 'status_code'=>200]);
@@ -61,6 +74,9 @@ class UserController extends Controller
 
    public function getUserProfile()
    {  
+      /**
+       This endpoint fetches the profile of a logged in user
+       */
     $user = Auth::user();
    // $user['token'] = $user->createToken('Laravel')->accessToken;
      
@@ -69,6 +85,11 @@ class UserController extends Controller
 
    public function editUserProfile(Request $request)
    {  
+
+      /**
+       This endpoint edits the profile details of a logged in user
+       */
+
    $user_details = Auth::user();
    $user_id = $user_details->id;
 
@@ -96,6 +117,10 @@ class UserController extends Controller
 
    public function logout(Request $request)
    {
+
+      /**
+       This endpoint logouts a logged in user
+       */
     if(!$this->guard()->check()){
     return response()->json(['status_message'=>'No active user session was found', 'status_code'=>404]);
     }
@@ -112,7 +137,9 @@ class UserController extends Controller
 
     public function changeUserPassword(Request $request)
     {
-     
+       /**
+       This endpoint changes the password of a logged in user
+       */
     // $user_details = Auth::user();
      $user_id = Auth::id();
 
