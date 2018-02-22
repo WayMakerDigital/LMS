@@ -22,6 +22,7 @@ Route::get('admin', 'Admin\AdminController@getAdminLogin');
 Route::post('admin/login', 'Admin\AdminController@adminAuth')->name('login.admin');
 Route::get('/admin/create', 'Admin\AdminController@createAdmin');
 Route::post('/admin/register', 'Admin\AdminController@registerAdmin')->name('new.admin');
+Route::get('courses', 'Admin\AdminController@getAllFreeCourses');
 
 Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('dashboard', 'Admin\AdminController@getAdminDashbboard');

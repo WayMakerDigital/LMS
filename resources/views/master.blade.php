@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{!! asset('assets/vendor/font-awesome/css/font-awesome.min.css') !!}">
   <link rel="stylesheet" href="{!! asset('assets/vendor/linearicons/style.css') !!}">
   <!--text editor-->
-  <script src="../ckeditor/ckeditor.js"></script>
+  <script src="{!! asset('ckeditor/ckeditor.js') !!}"></script>
   <!-- MAIN CSS -->
    <link rel="stylesheet" href="{!! asset('assets/css/main.css') !!}">
   <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -20,8 +20,8 @@
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
   <!-- ICONS -->
-  <link rel="apple-touch-icon" sizes="76x76" href="../waymaker/Waymaker1.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../waymaker/Waymaker1.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{!! asset('waymaker/Waymaker1.png') !!}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{!! asset('waymaker/Waymaker1.png') !!}">
 </head>
 
 <body>
