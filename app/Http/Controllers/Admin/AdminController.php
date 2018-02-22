@@ -57,8 +57,10 @@ public function getAdminDashbboard()
 {
 	$users = DB::table('users')->count();
 	$admins = DB::table('admins')->count();
+  $courses = DB::table('courses')->count();
+  $modules = DB::table('modules')->count();
 
-	return view('dashboard.index', compact('users', 'admins'));
+	return view('dashboard.index', compact('users', 'admins', 'courses', 'modules'));
 }
 
 public function logout()
