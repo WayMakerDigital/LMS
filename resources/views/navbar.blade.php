@@ -46,6 +46,15 @@
 									<li><a href="/admin/modules" class="">All Modules</a></li>
 								</ul>
 							</div>
+								<li>
+							<a href="#subP" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Topics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subP" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/topic/create" class="">Create Topic</a></li>
+									<li><a href="/admin/topics" class="">All Topics</a></li>
+								</ul>
+							</div>
+						</li>
 						</li>
 					</ul>
 				</nav>

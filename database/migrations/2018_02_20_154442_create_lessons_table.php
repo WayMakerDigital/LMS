@@ -17,6 +17,7 @@ class CreateLessonsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->string('title');
+            $table->mediumText('slug');
             $table->integer('rank');
             $table->mediumText('description');
             $table->timestamps();
