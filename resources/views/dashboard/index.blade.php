@@ -26,6 +26,24 @@
 										</p>
 									</div>
 								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-certificate"></i></span>
+										<p>
+											<span class="number">{{$courses}}</span>
+											<span class="title">Courses</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-book"></i></span>
+										<p>
+											<span class="number">{{$modules}}</span>
+											<span class="title">Modules</span>
+										</p>
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								</div>

@@ -38,5 +38,11 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('module/{id}/edit', 'Admin\ModuleController@edit')->name('edit.module');
    Route::put('module/{id}/update', 'Admin\ModuleController@update')->name('update.module');
    Route::delete('modules/{id}', 'Admin\ModuleController@delete')->name('destroy.module');
+   Route::get('topic/create', 'Admin\TopicController@create');
+   Route::get('topics', 'Admin\TopicController@index');
+   Route::post('topics', 'Admin\TopicController@store')->name('upload.topic');
+   Route::get('topic/{id}/edit', 'Admin\TopicController@edit')->name('edit.topic');
+   Route::put('topic/{id}/update', 'Admin\TopicController@update')->name('update.topic');
+   Route::delete('topics/{id}', 'Admin\TopicController@delete')->name('destroy.topic');
 });
 

@@ -10,7 +10,7 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Administrator</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Administrator</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="/admin/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
@@ -30,7 +30,7 @@
 					<ul class="nav">
 						<li><a href="/admin/dashboard" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 							<li>
-							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Courses</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cloud-check"></i> <span>Courses</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPag" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/course/create" class="">Create Course</a></li>
@@ -39,13 +39,22 @@
 							</div>
 						</li>
 							<li>
-							<a href="#subPa" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Modules</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPa" data-toggle="collapse" class="collapsed"><i class="lnr lnr-inbox"></i> <span>Modules</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPa" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/module/create" class="">Create Module</a></li>
 									<li><a href="/admin/modules" class="">All Modules</a></li>
 								</ul>
 							</div>
+								<li>
+							<a href="#subP" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Topics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subP" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/topic/create" class="">Create Topic</a></li>
+									<li><a href="/admin/topics" class="">All Topics</a></li>
+								</ul>
+							</div>
+						</li>
 						</li>
 					</ul>
 				</nav>

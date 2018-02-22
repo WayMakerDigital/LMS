@@ -17,6 +17,8 @@ class CreateTopicsTable extends Migration
             $table->increments('id');
             $table->integer('module_id')->unsigned();
             $table->string('title');
+            $table->mediumText('slug');
+            $table->integer('rank');
             $table->longText('vimeo_url');
             $table->timestamps();
 

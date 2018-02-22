@@ -4,7 +4,7 @@
 
 	<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Modules</h3>
+					<h3 class="page-title">Topics</h3>
 					  @if (session('info'))
                          <div class="alert alert-success">
                          {{ session('info')}}
@@ -18,30 +18,30 @@
 									<h3 class="panel-title"></h3>
 								</div>
 								<div class="panel-body">
-								@if(!count($modules))
-								<p> There are no modules yet </p>
+								@if(!count($topics))
+								<p> There are no Topics yet </p>
 								@else
 									<table class="table table-bordered">
 										<thead>
 										<tr>
-												<th>Module Title</th>
-												<th>Course</th>
+												<th>Topic Title</th>
+												<th>Module</th>
 												<th>Position </th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
 										</thead>
-									  @foreach($modules as $module)
+									  @foreach($topics as $topic)
 										<tbody>
 											<tr>
-												<td>{{$module->title}}</td>
-												<td>{{$module->course->title}}</td>
-												<td>{{$module->rank}}</td>
-											<form action="{{route('edit.module', $module->id)}}" method="GET">
+												<td>{{$topic->title}}</td>
+												<td>{{$topic->module->title}}</td>
+												<td>{{$topic->rank}}</td>
+											<form action="{{route('edit.topic', $topic->id)}}" method="GET">
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs" ><span class="fa fa-pencil fa-fw"></span></button></p></td>
   </form>
 												
-												<form action="{{route('destroy.module', $module->id)}}" method="POST">
+												<form action="{{route('destroy.topic', $topic->id)}}" method="POST">
       {{csrf_field()}}
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>
