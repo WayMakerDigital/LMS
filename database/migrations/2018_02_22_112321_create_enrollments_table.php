@@ -19,10 +19,10 @@ class CreateEnrollmentsTable extends Migration
             $table->integer('subscription_id')->unsigned()->default(0);
             $table->integer('course_id')->unsigned()->default(0);
             $table->decimal('amount_due');
-            $table->string('card_no');
-            $table->string('payment_ref');
-            $table->string('payment_platform');
-            $table->boolean('status');
+            $table->string('card_no')->nullable();
+            $table->string('payment_ref')->nullable();
+            $table->string('payment_platform')->nullable();
+            $table->boolean('status')->default(false);
             $table->date('enrollment_date');
             $table->date('expiration_date');
             $table->timestamps();
