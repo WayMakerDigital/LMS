@@ -16,18 +16,11 @@ class CreateEnrollmentsTable extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('subscription_id')->unsigned()->default(0);
+            $table->integer('subscription_id')->unsigned();
             $table->integer('course_id')->unsigned()->default(0);
-            $table->decimal('amount_due');
-            $table->string('card_no')->nullable();
-            $table->string('payment_ref')->nullable();
-            $table->string('payment_platform')->nullable();
-            $table->boolean('status')->default(false);
-            $table->date('enrollment_date');
-            $table->date('expiration_date');
+            $table->string('stripe_id');
+            $table->timestamp('ends_at')->nullable();
             $table->timestamps();
-
-            
 
             $table->foreign('user_id')
                 ->references('id')->on('users')
