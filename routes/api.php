@@ -17,15 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->group(function () {
-	Route::post('register', 'API\UserController@register');
-	Route::post('login', 'API\UserController@login');
-	Route::get('users', 'API\UserController@getAllUsers');
-});
-
 Route::group(['middleware'=>'auth:api', 'prefix'=>'v1'], function(){
- Route::get('profile', 'API\UserController@getUserProfile');
- Route::put('profile/edit', 'API\UserController@editUserProfile');
- Route::post('logout', 'API\UserController@logout');
- Route::post('profile/password/edit', 'API\UserController@changeUserPassword');
+    Route::post('enrollment', 'API\EnrollmentController@enroll');
+    Route::get('enrollment/view/{id}', 'API\EnrollmentController@viewEnrollment');
 });
