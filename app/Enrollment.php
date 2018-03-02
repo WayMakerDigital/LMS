@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Enrollment extends Model
 {
     protected $fillable = [
-        'stripe_id', 'subscription_id', 'course_id', 'ends_at', 
+        'stripe_id', 'subscription_id', 'user_id', 'course_id', 'ends_at', 
     ];
 }
