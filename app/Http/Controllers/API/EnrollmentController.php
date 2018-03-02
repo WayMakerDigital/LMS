@@ -51,7 +51,7 @@ class EnrollmentController extends Controller
     $input = $request->all();
     $enrollment = Enrollment::create($input);
     $id = $enrollment->id;
-    $enrollment = Enrollment::where('id', $id)->update(['ends_at' =>$ends_at]);
+    $enrollment = Enrollment::where('id', $id)->update(['user_id'=>$user_id, 'ends_at' =>$ends_at]);
     try{
         $user->newSubscription($title, $title)->create($token,[
                 'email' => $email,]);
