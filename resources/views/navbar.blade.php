@@ -65,7 +65,7 @@
 									<li><a href="/admin/post/create" class="">Create Post</a></li>
 									<li><a href="/admin/posts" class="">All Posts</a></li>
 							        <li><a href="/admin/posts/category/create" class="">Post Categories</a></li>
-									<li><a href="/admin/post/categories" class="">All Categories</a></li>
+									<li><a href="/admin/posts/categories" class="">All Categories</a></li>
 								</ul>
 							</div>
 						</li>

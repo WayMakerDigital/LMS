@@ -27,6 +27,8 @@ Route::get('courses', 'Admin\AdminController@getAllFreeCourses');
 Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('dashboard', 'Admin\AdminController@getAdminDashbboard');
    Route::get('logout', 'Admin\AdminController@logout');
+
+   //creating a course and categories
    Route::get('course/create', 'Admin\CourseController@create');
    Route::get('courses', 'Admin\CourseController@index');
    Route::post('courses', 'Admin\CourseController@store')->name('upload.course');
@@ -37,19 +39,27 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::post('/upload/course/category', 'Admin\CourseCategoryController@store')->name('upload.course.category');
    Route::get('/courses/categories', 'Admin\CourseCategoryController@index');
    Route::delete('/courses/category/{id}', 'Admin\CourseCategoryController@destroy')->name('destroy.course.category');
+   
+   //creating a module
    Route::get('module/create', 'Admin\ModuleController@create');
    Route::get('modules', 'Admin\ModuleController@index');
    Route::post('modules', 'Admin\ModuleController@store')->name('upload.module');
    Route::get('module/{id}/edit', 'Admin\ModuleController@edit')->name('edit.module');
    Route::put('module/{id}/update', 'Admin\ModuleController@update')->name('update.module');
    Route::delete('modules/{id}', 'Admin\ModuleController@delete')->name('destroy.module');
+   
+   //creating a topic
    Route::get('topic/create', 'Admin\TopicController@create');
    Route::get('topics', 'Admin\TopicController@index');
    Route::post('topics', 'Admin\TopicController@store')->name('upload.topic');
    Route::get('topic/{id}/edit', 'Admin\TopicController@edit')->name('edit.topic');
    Route::put('topic/{id}/update', 'Admin\TopicController@update')->name('update.topic');
    Route::delete('topics/{id}', 'Admin\TopicController@delete')->name('destroy.topic');
+
+   //creating a post and categories
    Route::get('/posts', 'Admin\PostController@index');
+   Route::get('/post/create', 'Admin\PostController@create');
+   Route::post('/post/upload', 'Admin\PostController@store')->name('upload.post');
    Route::get('/post/{id}/edit', 'Admin\PostController@edit')->name('edit.post');
    Route::put('/post/{id}', 'Admin\PostController@update')->name('update.post');
    Route::delete('/post/{slug}', 'Admin\PostController@destroy')->name('destroy.post');

@@ -5,44 +5,43 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Post;
 use App\PostCategory;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function __construct()
-{
-    $this->middleware('auth');
-}
+
 
       public function index()
 	{
 		$posts = Post::all();
 
-
-		return view('posts.index', compact('posts'));
+		return view('post.index', compact('posts'));
 	}
 
 	public function edit($id)
 	{
        $post = Post::find($id);
 
-		$post_categories = PostCategory::all();
+		$categories = PostCategory::all();
 		
 
-		return view('posts.edit', compact('post', 'post_categories'));
+		return view('post.edit', compact('post', 'categories'));
 	}
     public function create()
     {
-     	$post_categories = PostCategory::all();
+     
+   $categories = PostCategory::all();
 
-	return view('posts.new', compact('post_categories'));
+ //  dd($categories);
+
+	return view('post.new', compact('categories'));
     }
 
        public function store(Request $request)
     {
     	$this->validate($request, [ 
          'title'=> 'required|min:4',
-         'description'=> 'required|min:4',
          'content'=> 'required|min:4',
          'cover_image'=> 'required|image',
          'category'=>'required'
@@ -50,7 +49,6 @@ class PostController extends Controller
        ]);
       $title = $request->title;
       $slug = str_slug($title);
-      $description = $request->description;
       $content = $request->content;
       $category_id = $request->category;
       $test = $request->file('cover_image')->getClientOriginalName();
@@ -60,7 +58,6 @@ class PostController extends Controller
       $post = new Post; 
 
       $post->title = $title;
-      $post->description = $description;
       $post->body_content = $content;
       $post->slug = $slug;
       $post->image_name = $test;
@@ -98,7 +95,6 @@ class PostController extends Controller
      $post = Post::find($id);
 
     	$post->title = $title;
-    	$post->description = $request->description;
     	$post->body_content = $request->content;
       $post->image_name = $cover_image;
       $post->image_url= $cover_url;

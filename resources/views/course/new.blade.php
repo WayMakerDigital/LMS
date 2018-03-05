@@ -8,7 +8,7 @@
                 
 
 	<div class="col-lg-6">
-		<form class="form-vertical" role="form" enctype="multipart/form-data" method="post"  action="{{route('upload.course.category')}}">
+		<form class="form-vertical" role="form" enctype="multipart/form-data" method="post"  action="{{route('upload.course')}}">
 		 {{csrf_field()}}
          @if(session('success'))
                 <div class="alert alert-success" role="alert">
@@ -33,6 +33,20 @@
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
+
+              <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+                <label for="category" class="control-label">Choose Course Category</label>
+                <select name="category" id="status">
+                   <p>You are yet to create a category</p>
+                  @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('category'))
+                    <span class="help-block">{{ $errors->first('category') }}</span>
+                @endif
+            </div>
+
 
             <div class="form-group{{ $errors->has('course_price') ? ' has-error' : '' }}">
                 <label for="name" class="control-label">Course Price</label>
