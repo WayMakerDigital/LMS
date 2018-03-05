@@ -21,4 +21,11 @@ class CourseController extends Controller
     
     return response()->json(['data'=>$free_courses, 'status_code'=>200]);
   }
+
+  public function getCourse($slug)
+  {
+  	$course = Course::whereSlug($slug)->firstorFail();
+
+  	return response()->json(['data'=>$course, 'status_code'=>200]);
+  }
 }

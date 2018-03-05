@@ -13,9 +13,11 @@
 		<form class="form-vertical" role="form" method="post"  action="{{route('upload.module')}}">
 		 {{csrf_field()}}
 		  @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
+                        <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>
+      </button>
+                            <strong>{{ session('success')}}</strong>
+                        </div>
                    @endif
              <div class="form-group{{ $errors->has('course') ? ' has-error' : '' }}">
                 <label for="category" class="control-label">Please select a Course</label>

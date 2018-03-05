@@ -4,19 +4,11 @@
 
 	<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Topics</h3>
+					<h3 class="page-title">Posts</h3>
 					  @if (session('info'))
-                                <div class="row">
-            <div class="col-md-6">
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-      </button>
-                    <strong>{{ session('info')}}</strong>
-                </div>
-            </div>
-
-        </div>
+                         <div class="alert alert-success">
+                         {{ session('info')}}
+                          </div>
                            @endif
 					<div class="row">
 						<div class="col-md-6">
@@ -26,30 +18,28 @@
 									<h3 class="panel-title"></h3>
 								</div>
 								<div class="panel-body">
-								@if(!count($topics))
-								<p> There are no Topics yet </p>
-								@else
+								  @if(!count($posts))
+									 <p>There are no posts yet</p>
+									 @else
 									<table class="table table-bordered">
 										<thead>
-										<tr>
-												<th>Topic Title</th>
-												<th>Module</th>
-												<th>Position </th>
+											<tr>
+												<th>Title</th>
+												<th>Description</th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
 										</thead>
-									  @foreach($topics as $topic)
+									  @foreach($posts as $post)
 										<tbody>
 											<tr>
-												<td>{{$topic->title}}</td>
-												<td>{{$topic->module->title}}</td>
-												<td>{{$topic->rank}}</td>
-											<form action="{{route('edit.topic', $topic->id)}}" method="GET">
+												<td>{{$post->title}}</td>
+												<td>{{$post->description}}</td>
+											<form action="{{route('edit.post', $post->id)}}" method="GET">
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs" ><span class="fa fa-pencil fa-fw"></span></button></p></td>
   </form>
 												
-												<form action="{{route('destroy.topic', $topic->id)}}" method="POST">
+												<form action="{{route('destroy.post', $post->slug)}}" method="POST">
       {{csrf_field()}}
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>

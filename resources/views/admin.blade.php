@@ -41,9 +41,14 @@
                     @endforeach
 
                    @if (session('warning'))
-                    <div class="alert alert-danger">
-                        {{ session('warning') }}
-                    </div>
+
+                        <div class="alert alert-danger" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+                               <span aria-hidden="true">&times;</span>
+      </button>
+                            <strong>{{ session('warning')}}</strong>
+                        </div>
+              
                    @endif
                   <label for="signin-email" class="control-label sr-only">Email</label>
                   <input type="email" name="email" class="form-control" id="signin-email" value="" placeholder="Email">
