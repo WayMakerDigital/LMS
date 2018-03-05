@@ -5,10 +5,18 @@
 	<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">Categories</h3>
-					  @if (session('info'))
-                         <div class="alert alert-success">
-                         {{ session('info')}}
-                          </div>
+					    @if (session('info'))
+                                <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+                    <strong>{{ session('info')}}</strong>
+                </div>
+            </div>
+
+        </div>
                            @endif
 					<div class="row">
 						<div class="col-md-6">
@@ -32,7 +40,7 @@
 										<tbody>
 											<tr>
 												<td>{{$category->title}}</td>
-												<form action="{{route('destroy.category', $category->id)}}" method="POST">
+												<form action="{{route('destroy.post.category', $category->id)}}" method="POST">
       {{csrf_field()}}
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>

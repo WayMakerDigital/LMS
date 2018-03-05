@@ -23,15 +23,8 @@ class CreateBlogsTable extends Migration
             $table->mediumText('slug');
             $table->integer('category_id')->unsigned();
             $table->timestamps();
-            $table->timestamps();
-
-             $table->foreign('category_id')
-                  ->references('id')->on('PostCategory')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-        });
-    }
-
+    });
+}
     /**
      * Reverse the migrations
      *

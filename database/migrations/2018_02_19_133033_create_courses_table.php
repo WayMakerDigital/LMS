@@ -15,7 +15,7 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('category_id')->nullable()->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('title');
             $table->string('slug');
             $table->string('description');
@@ -26,11 +26,6 @@ class CreateCoursesTable extends Migration
             $table->integer('published')->default(0);
             $table->integer('free_course')->default(0);
             $table->timestamps();
-
-            $table->foreign('category_id')
-                  ->references('id')->on('CourseCategory')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
         });
     }
 

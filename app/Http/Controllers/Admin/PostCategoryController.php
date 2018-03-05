@@ -6,17 +6,14 @@ use Illuminate\Http\Request;
 use App\PostCategory;
 use App\Http\Controllers\Controller;
 
-use App\Http\Controllers\Controller;
+
 
 class PostCategoryController extends Controller
 {
-     public function __construct()
-{
-    $this->middleware('auth');
-}
+
      public function index()
 	{
-		$categories = PostCategory::all();
+        $categories = PostCategory::all();
 
 		return view('postcategory.index', compact('categories'));
 	}

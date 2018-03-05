@@ -8,20 +8,18 @@ use App\Http\Controllers\Controller;
 
 class CourseCategoryController extends Controller
 {
-    public function __construct()
-{
-    $this->middleware('auth');
-}
      public function index()
 	{
-		$categories = CourseCategory::all();
+        $categories = CourseCategory::all();
+        
+      //  dd($categories);
 
-		return view('coursecategory.index', compact('categories'));
+		return view('Coursecategory.index', compact('categories'));
 	}
 
     public function create()
     {
-    	return view('coursecategory.new');
+    	return view('Coursecategory.new');
     }
 
      public function store(Request $request)

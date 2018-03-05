@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\CourseCategory;
+
 
 class CourseCategory extends Model
 {
-    //
+    public function course()
+    {
+      return $this->belongsTo('App\Course');
+    }
 }
