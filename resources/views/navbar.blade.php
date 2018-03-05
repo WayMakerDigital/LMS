@@ -35,6 +35,8 @@
 								<ul class="nav">
 									<li><a href="/admin/course/create" class="">Create Course</a></li>
 									<li><a href="/admin/courses" class="">All Courses</a></li>
+									<li><a href="/admin/course/category/create" class="">Create Course Category</a></li>
+									<li><a href="/admin/courses/categories" class="">All Categories</a></li>
 								</ul>
 							</div>
 						</li>
@@ -52,6 +54,18 @@
 								<ul class="nav">
 									<li><a href="/admin/topic/create" class="">Create Topic</a></li>
 									<li><a href="/admin/topics" class="">All Topics</a></li>
+								</ul>
+							</div>
+						</li>
+						</li>
+							<li>
+							<a href="#sub" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Blog</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="sub" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/post/create" class="">Create Post</a></li>
+									<li><a href="/admin/posts" class="">All Posts</a></li>
+							        <li><a href="/admin/post/category/create" class="">Create Categories</a></li>
+									<li><a href="/admin/post/categories" class="">All Categories</a></li>
 								</ul>
 							</div>
 						</li>

@@ -19,12 +19,6 @@ class TopicController extends Controller
       $rank_numbers = range(1, 13);
 
       $videos = Vimeo::request('/me/videos', ['per_page' =>30], 'GET');
-     // $i_count = count($videos['body']['data']);
-    
-    /*  foreach($videos as $video){
-       dd($video['data'][0]['name']);
-      }
-      */
   
       return view('topic.new', compact('rank_numbers', 'modules', 'videos'));
     }
