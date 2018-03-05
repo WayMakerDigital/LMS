@@ -11,15 +11,14 @@ class CourseCategoryController extends Controller
      public function index()
 	{
         $categories = CourseCategory::all();
-        
-      //  dd($categories);
 
 		return view('Coursecategory.index', compact('categories'));
 	}
 
     public function create()
     {
-    	return view('Coursecategory.new');
+      $categories = CourseCategory::all();
+    	return view('Coursecategory.new', compact('categories'));
     }
 
      public function store(Request $request)
@@ -42,7 +41,7 @@ class CourseCategoryController extends Controller
 
       $category = CourseCategory::find($id)->delete();
 
-      return redirect()->back()->with('info', 'Category has been deleted successfully');
+      return redirect()->back()->with('success', 'Category has been deleted successfully');
 
     }
 }

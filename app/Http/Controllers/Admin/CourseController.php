@@ -8,20 +8,26 @@ use App\Http\Controllers\Controller;
 use App\Course;
 use App\CourseCategory;
 use Illuminate\Support\Facades\Storage;
+use Vimeo;
 
 class CourseController extends Controller
 {
     public function create()
     {
+
       $categories = CourseCategory::all();
 
-      return view('course.new', compact('categories'));
+      $videos = Vimeo::request('/me/videos', ['per_page' =>30], 'GET');
+
+      //dd($videos);
+
+      return view('course.new', compact('categories','videos'));
     }
 
     public function index()
     {
         $courses = Course::all();
-        
+
         $categories = CourseCategory::all();
 
     	return view('course.index', compact('courses'));
@@ -63,6 +69,7 @@ class CourseController extends Controller
        $course->image_name = $image_name;
        $course->image_url = $image_url;
        $course->category_id = $category_id;
+       $course->preview_url = $request->vimeo_url;
 
        $course->save();
 
@@ -76,7 +83,9 @@ class CourseController extends Controller
 
       $categories = CourseCategory::all();
 
-      return view('course.edit', compact('course', 'categories'));
+      $videos = Vimeo::request('/me/videos', ['per_page' =>30], 'GET');
+
+      return view('course.edit', compact('course', 'categories', 'videos'));
     }
 
     public function update(Request $request, $id)
@@ -123,6 +132,7 @@ class CourseController extends Controller
        $course->image_name = $cover_image;
        $course->image_url = $cover_url;
        $course->category_id = $request->category;
+       $course->preview_url = $request->vimeo_url;
 
        $course->save();
    

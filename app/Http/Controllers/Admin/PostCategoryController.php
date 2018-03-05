@@ -20,7 +20,9 @@ class PostCategoryController extends Controller
 
     public function create()
     {
-    	return view('postcategory.new');
+       $categories = PostCategory::all();
+
+    	return view('postcategory.new', compact('categories'));
     }
 
      public function store(Request $request)
@@ -43,7 +45,7 @@ class PostCategoryController extends Controller
 
       $category = PostCategory::find($id)->delete();
 
-      return redirect()->back()->with('info', 'Category has been deleted successfully');
+      return redirect()->back()->with('success', 'Category has been deleted successfully');
 
     }
 }

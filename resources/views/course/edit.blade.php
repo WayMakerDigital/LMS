@@ -31,9 +31,9 @@
             </div>
 
             <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                <label for="category" class="control-label">Choose Blog Category</label>
+                <label for="category" class="control-label">CourseCategory</label>
                 <select name="category" id="status">
-                  @if($categories->count())
+                  @if(count($categories) > 0)
                   @foreach($categories as $category)
                 <option value="{{$category->id}}" {{$course->category_id == $category->id ? 'selected="selected"' : ''}}>{{$category->title}}</option>
                     @endforeach
@@ -43,6 +43,17 @@
                     <span class="help-block">{{ $errors->first('category') }}</span>
                 @endif
             </div>
+
+                <div class="form-group{{ $errors->has('vimeo_url') ? ' has-error' : '' }}">
+                    <label for="category" class="control-label">Video associated with this Topic</label>
+                    <select name="vimeo_url" class="custom-class">
+                    @foreach($videos['body']['data'] as $video)
+                 <option value="{{$video['link']}}" {{$video['link'] == $course->preview_url ? 'selected="selected"': ''}}>{{$video['name']}}</option>
+                    @endforeach
+                  </select> @if ($errors->has('vimeo_url'))
+                    <span class="help-block">{{ $errors->first('vimeo_url') }}</span> @endif
+                </div>
+
 
             <div class="form-group{{ $errors->has('course_price') ? ' has-error' : '' }}">
                 <label for="name" class="control-label">Course Price</label>
