@@ -46,6 +46,19 @@
                     <span class="help-block">{{ $errors->first('category') }}</span>
                 @endif
             </div>
+    
+                 <div class="form-group{{ $errors->has('vimeo_url') ? ' has-error' : '' }}">
+                <label for="category" class="control-label">Please select the Preview Video for this course</label>
+                 <select name="vimeo_url" class="custom-class">
+                    @foreach($videos['body']['data'] as $video)
+                 <option value="{{$video['link']}}">{{$video['name']}}</option>
+                    @endforeach
+                  </select>               
+    
+                  @if ($errors->has('vimeo_url'))
+                    <span class="help-block">{{ $errors->first('vimeo_url') }}</span>
+                @endif
+            </div>
 
 
             <div class="form-group{{ $errors->has('course_price') ? ' has-error' : '' }}">

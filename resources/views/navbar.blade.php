@@ -36,7 +36,6 @@
 									<li><a href="/admin/course/create" class="">Create Course</a></li>
 									<li><a href="/admin/courses" class="">All Courses</a></li>
 									<li><a href="/admin/courses/category/create" class="">Course Category</a></li>
-									<li><a href="/admin/courses/categories" class="">All Categories</a></li>
 								</ul>
 							</div>
 						</li>
@@ -65,7 +64,6 @@
 									<li><a href="/admin/post/create" class="">Create Post</a></li>
 									<li><a href="/admin/posts" class="">All Posts</a></li>
 							        <li><a href="/admin/posts/category/create" class="">Post Categories</a></li>
-									<li><a href="/admin/posts/categories" class="">All Categories</a></li>
 								</ul>
 							</div>
 						</li>
