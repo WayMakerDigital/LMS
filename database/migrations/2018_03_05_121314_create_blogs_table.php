@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->string('image_name');
             $table->mediumText('image_url');
             $table->mediumText('slug');
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->nullable()->unsigned();
             $table->timestamps();
     });
 }

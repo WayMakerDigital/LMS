@@ -13,12 +13,16 @@ class CourseController extends Controller
 {
     public function create()
     {
-      return view('course.new');
+      $categories = CourseCategory::all();
+
+      return view('course.new', compact('categories'));
     }
 
     public function index()
     {
-    	$courses = Course::all();
+        $courses = Course::all();
+        
+        $categories = CourseCategory::all();
 
     	return view('course.index', compact('courses'));
     }
@@ -38,6 +42,7 @@ class CourseController extends Controller
     $image_name = $request->file('course_image')->getClientOriginalName();
     $path = $request->file('course_image')->storeAs('public', $image_name);
     $image_url= Storage::url($image_name);
+    $category_id = $request->category;
 
         $course = new Course;
 
@@ -57,9 +62,10 @@ class CourseController extends Controller
        $course->start_date = $request->start_date;
        $course->image_name = $image_name;
        $course->image_url = $image_url;
+       $course->category_id = $category_id;
 
        $course->save();
-   
+
 
        return redirect()->back()->with('success', 'New Course has been created succesfully');
     }
@@ -68,7 +74,9 @@ class CourseController extends Controller
     {
       $course = Course::find($id);
 
-      return view('course.edit', compact('course'));
+      $categories = CourseCategory::all();
+
+      return view('course.edit', compact('course', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -114,6 +122,7 @@ class CourseController extends Controller
        $course->start_date = $request->start_date;
        $course->image_name = $cover_image;
        $course->image_url = $cover_url;
+       $course->category_id = $request->category;
 
        $course->save();
    

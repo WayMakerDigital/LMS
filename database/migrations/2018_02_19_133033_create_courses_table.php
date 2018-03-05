@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->string('description');
             $table->string('image_name');
             $table->mediumText('image_url');
+            $table->mediumText('preview_url');
             $table->decimal('price');
             $table->date('start_date');
             $table->integer('published')->default(0);

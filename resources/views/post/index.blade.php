@@ -25,7 +25,6 @@
 										<thead>
 											<tr>
 												<th>Title</th>
-												<th>Description</th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
@@ -34,7 +33,6 @@
 										<tbody>
 											<tr>
 												<td>{{$post->title}}</td>
-												<td>{{$post->description}}</td>
 											<form action="{{route('edit.post', $post->id)}}" method="GET">
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs" ><span class="fa fa-pencil fa-fw"></span></button></p></td>
   </form>

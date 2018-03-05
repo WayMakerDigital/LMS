@@ -7,11 +7,14 @@
     <form class="form-vertical" role="form" enctype="multipart/form-data" method="post"  action="{{route('update.course', $course->id)}}">
      {{csrf_field()}}
      @method('PUT')
-      @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                   @endif
+     @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+                    <strong>{{ session('success')}}</strong>
+                </div>
+         @endif
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name" class="control-label">Title</label>
                 <input type="text" name="title" class="form-control" id="name" value="{{$course->title}}">
@@ -24,6 +27,20 @@
                 <textarea name="description" class="form-control" id="body_text">{{$course->description}}</textarea>
                 @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+                <label for="category" class="control-label">Choose Blog Category</label>
+                <select name="category" id="status">
+                  @if($categories->count())
+                  @foreach($categories as $category)
+                <option value="{{$category->id}}" {{$course->category_id == $category->id ? 'selected="selected"' : ''}}>{{$category->title}}</option>
+                    @endforeach
+                    @endif
+                </select>
+                @if ($errors->has('category'))
+                    <span class="help-block">{{ $errors->first('category') }}</span>
                 @endif
             </div>
 
