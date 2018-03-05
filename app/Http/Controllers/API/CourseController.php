@@ -24,8 +24,10 @@ class CourseController extends Controller
 
   public function getCourse($slug)
   {
-  	$course = Course::whereSlug($slug)->firstorFail();
+    $course = Course::whereSlug($slug)->firstorFail();
 
-  	return response()->json(['data'=>$course, 'status_code'=>200]);
+    $course_category = Course::find($course->id)->category->title; 
+
+  	return response()->json(['data'=>$course, 'course_category'=>$course_category, 'status_code'=>200]);
   }
 }

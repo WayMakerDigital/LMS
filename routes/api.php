@@ -24,6 +24,8 @@ Route::prefix('v1')->group(function () {
 	Route::get('courses/paid', 'API\CourseController@getAllPaidCourses');
 	Route::get('courses/free', 'API\CourseController@getAllFreeCourses');
 	Route::get('course/{slug}','API\CourseController@getCourse');
+	Route::get('blog','API\PostController@getAllPosts');
+	Route::get('blog/{slug}','API\PostController@getPost');
 });
 
 Route::group(['middleware'=>'auth:api', 'prefix'=>'v1'], function(){
