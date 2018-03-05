@@ -27,4 +27,9 @@ class Course extends Model
     {
       return $query->where('published', 1);
     }
+
+    public function category()
+    {
+      return $this->hasMany('App\CourseCategory');
+    }
 }

@@ -33,6 +33,10 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('course/{id}/edit', 'Admin\CourseController@edit')->name('edit.course');
    Route::put('course/{id}/update', 'Admin\CourseController@update')->name('update.course');
    Route::delete('courses/{id}', 'Admin\CourseController@delete')->name('destroy.course');
+   Route::get('/courses/category/create', 'Admin\CourseCategoryController@create');
+   Route::post('/upload/course/category', 'Admin\CourseCategoryController@store')->name('upload.course.category');
+   Route::get('/courses/categories', 'Admin\CourseCategoryController@index');
+   Route::delete('/courses/category/{id}', 'Admin\CourseCategoryController@destroy')->name('destroy.course.category');
    Route::get('module/create', 'Admin\ModuleController@create');
    Route::get('modules', 'Admin\ModuleController@index');
    Route::post('modules', 'Admin\ModuleController@store')->name('upload.module');
@@ -45,5 +49,13 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('topic/{id}/edit', 'Admin\TopicController@edit')->name('edit.topic');
    Route::put('topic/{id}/update', 'Admin\TopicController@update')->name('update.topic');
    Route::delete('topics/{id}', 'Admin\TopicController@delete')->name('destroy.topic');
+   Route::get('/posts', 'Admin\PostController@index');
+   Route::get('/post/{id}/edit', 'Admin\PostController@edit')->name('edit.post');
+   Route::put('/post/{id}', 'Admin\PostController@update')->name('update.post');
+   Route::delete('/post/{slug}', 'Admin\PostController@destroy')->name('destroy.post');
+   Route::get('/posts/category/create', 'Admin\PostCategoryController@create');
+   Route::post('/upload/post/category', 'Admin\PostCategoryController@store')->name('upload.post.category');
+   Route::get('/posts/categories', 'Admin\PostCategoryController@index');
+   Route::delete('/posts/category/{id}', 'Admin\PostCategoryController@destroy')->name('destroy.post.category');
 });
 

@@ -8,7 +8,7 @@
                 
 
 	<div class="col-lg-6">
-		<form class="form-vertical" role="form" enctype="multipart/form-data" method="post"  action="{{route('upload.course')}}">
+		<form class="form-vertical" role="form" enctype="multipart/form-data" method="post"  action="{{route('upload.course.category')}}">
 		 {{csrf_field()}}
          @if(session('success'))
                 <div class="alert alert-success" role="alert">

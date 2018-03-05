@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use App\Http\Controllers\Controller;
 use App\Course;
+use App\CourseCategory;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -24,6 +25,12 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
+         $this->validate($request, [
+        'title' => 'required|min:3',
+        'description' =>'required|min:5',
+        'course_price' =>'required',
+        'course_image' =>'required|image',
+    	]);
      
 
     $title = $request->title;
