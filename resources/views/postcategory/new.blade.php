@@ -33,7 +33,8 @@
 
 <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Course Categories</h3>
+            <h3 class="page-title">Blog Categories</h3>
+
             <div class="row">
                 <div class="col-md-6">
                     <!-- BASIC TABLE -->

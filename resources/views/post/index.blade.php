@@ -5,10 +5,18 @@
 	<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">Posts</h3>
-					  @if (session('info'))
-                         <div class="alert alert-success">
-                         {{ session('info')}}
-                          </div>
+					    @if (session('info'))
+                                <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+                    <strong>{{ session('info')}}</strong>
+                </div>
+            </div>
+
+        </div>
                            @endif
 					<div class="row">
 						<div class="col-md-6">

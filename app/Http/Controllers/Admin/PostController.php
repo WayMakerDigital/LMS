@@ -23,6 +23,9 @@ class PostController extends Controller
 	{
        $post = Post::find($id);
 
+       $category = Post::find($id)->category->title;
+      // dd($category);
+
 		$categories = PostCategory::all();
 		
 
@@ -32,6 +35,7 @@ class PostController extends Controller
     {
      
    $categories = PostCategory::all();
+
 
  //  dd($categories);
 
@@ -44,7 +48,6 @@ class PostController extends Controller
          'title'=> 'required|min:4',
          'content'=> 'required|min:4',
          'cover_image'=> 'required|image',
-         'category'=>'required'
       
        ]);
       $title = $request->title;
@@ -75,9 +78,7 @@ class PostController extends Controller
 
     $this->validate($request, [ 
          'title'=> 'required|min:4',
-         'description'=> 'required|min:4',
          'content'=> 'required|min:4',
-         'blog_image'=>'required|image'
        ]);
 
      $title = $request->title;
@@ -93,7 +94,6 @@ class PostController extends Controller
 }
          
      $post = Post::find($id);
-
     	$post->title = $title;
     	$post->body_content = $request->content;
       $post->image_name = $cover_image;
