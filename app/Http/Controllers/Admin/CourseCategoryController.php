@@ -39,7 +39,11 @@ class CourseCategoryController extends Controller
      public function destroy($id)
     {
 
-      $category = CourseCategory::find($id)->delete();
+      $category = CourseCategory::find($id);
+      
+      $category->courses()->detach();
+
+      $category->delete();
 
       return redirect()->back()->with('success', 'Category has been deleted successfully');
 

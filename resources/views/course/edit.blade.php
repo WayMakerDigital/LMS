@@ -35,7 +35,9 @@
                 <select name="category" id="status">
                   @if(count($categories) > 0)
                   @foreach($categories as $category)
-                <option value="{{$category->id}}" {{$course->category_id == $category->id ? 'selected="selected"' : ''}}>{{$category->title}}</option>
+                  @foreach($course->categories as $course_category)
+                <option value="{{$category->id}}" {{$course_category->pivot->course_category_id == $category->id ? 'selected="selected"' : ''}}>{{$category->title}}</option>
+                    @endforeach
                     @endforeach
                     @endif
                 </select>
