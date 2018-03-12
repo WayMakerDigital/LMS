@@ -28,8 +28,8 @@ class Course extends Model
       return $query->where('published', 1);
     }
 
-    public function category()
+    public function categories()
     {
-       return $this->belongsTo('App\CourseCategory','category_id', 'id');
+       return $this->belongsToMany('App\CourseCategory','course_pivot_categories', 'course_id', 'course_category_id');
     }
 }

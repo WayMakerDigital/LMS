@@ -13,7 +13,8 @@ use Vimeo;
 class CourseController extends Controller
 {
     public function create()
-    {
+    { 
+      
 
       $categories = CourseCategory::all();
 
@@ -68,10 +69,11 @@ class CourseController extends Controller
        $course->start_date = $request->start_date;
        $course->image_name = $image_name;
        $course->image_url = $image_url;
-       $course->category_id = $category_id;
        $course->preview_url = $request->vimeo_url;
 
        $course->save();
+
+       $course->categories()->attach($category_id);
 
 
        return redirect()->back()->with('success', 'New Course has been created succesfully');
@@ -99,6 +101,7 @@ class CourseController extends Controller
      $title = $request->title;
      $description = $request->description;
      $update_slug = str_slug($title, '-');
+     $category_id = $request->category;
 
     if($request->has('course_image')){
     $cover_image = $request->course_image->getClientOriginalName();
@@ -108,7 +111,8 @@ class CourseController extends Controller
     $cover_image = $request->image_name;
     $cover_url = Storage::url($cover_image);
 }
-    
+        
+       
         $course = Course::find($id);
 
     if($request->publish_course == 1){
@@ -131,10 +135,11 @@ class CourseController extends Controller
        $course->start_date = $request->start_date;
        $course->image_name = $cover_image;
        $course->image_url = $cover_url;
-       $course->category_id = $request->category;
        $course->preview_url = $request->vimeo_url;
 
        $course->save();
+
+       $course->categories()->sync([$category_id]);
    
 
        return redirect()->back()->with('success', 'Course has been updated succesfully');
@@ -142,7 +147,8 @@ class CourseController extends Controller
 
     public function delete($id)
     {
-    	$course = Course::find($id);
+        $course = Course::find($id);
+        $course->categories()->detach();
     	$course->delete();
 
     	return redirect()->back()->with('info', 'Course has been deleted successfully');
