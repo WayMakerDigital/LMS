@@ -50,6 +50,7 @@ class CourseController extends Controller
     $path = $request->file('course_image')->storeAs('public', $image_name);
     $image_url= Storage::url($image_name);
     $category_id = $request->category;
+ 
 
         $course = new Course;
 

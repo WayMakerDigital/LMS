@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostCategory extends Model
 {
-   public function post()
+   public function posts()
     {
-      return $this->hasMany('App\Post');
+      return $this->belongsToMany('App\PostCategory','post_pivot_categories', 'post_category_id', 'post_id');
     }
 }

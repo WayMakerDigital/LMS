@@ -31,7 +31,6 @@
                             <thead>
                                 <tr>
                                     <th>Title</th>
-                                    <th>Description </th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -40,7 +39,6 @@
                             <tbody>
                                 <tr>
                                     <td>{{$course->title}}</td>
-                                    <td>{!!$course->description !!}</td>
                                     <form action="{{route('edit.course', $course->id)}}" method="GET">
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs"><span class="fa fa-pencil fa-fw"></span></button></p>
@@ -55,7 +53,8 @@
                                     </form>
                                 </tr>
                             </tbody>
-                            @endforeach @endif
+                            @endforeach
+                          @endif
                         </table>
                     </div>
                 </div>
