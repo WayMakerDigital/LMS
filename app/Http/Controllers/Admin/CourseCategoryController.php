@@ -28,10 +28,11 @@ class CourseCategoryController extends Controller
       
        ]);
 
-        $category = new CourseCategory;
+          $category = new CourseCategory;
 
-    	$category->title = $request->title;
-        $category->save();
+          $category->title = $request->title;
+          
+              $category->save();
 
       return redirect()->back()->with('success', 'New category has been created succesfully');
   }

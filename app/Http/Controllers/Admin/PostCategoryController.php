@@ -43,7 +43,11 @@ class PostCategoryController extends Controller
      public function destroy($id)
     {
 
-      $category = PostCategory::find($id)->delete();
+      $category = PostCategory::find($id);
+      
+      $category->posts()->detach();
+
+      $category->delete();
 
       return redirect()->back()->with('success', 'Category has been deleted successfully');
 

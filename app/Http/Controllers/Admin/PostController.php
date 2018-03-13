@@ -10,9 +10,7 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-
-
-      public function index()
+    public function index()
 	{
 		$posts = Post::all();
 
@@ -23,10 +21,7 @@ class PostController extends Controller
 	{
        $post = Post::find($id);
 
-       $category = Post::find($id)->category->title;
-      // dd($category);
-
-		$categories = PostCategory::all();
+	   	$categories = PostCategory::all();
 		
 
 		return view('post.edit', compact('post', 'categories'));
@@ -65,9 +60,10 @@ class PostController extends Controller
       $post->slug = $slug;
       $post->image_name = $test;
       $post->image_url= $tests;
-      $post->category_id = $category_id;
 
       $post->save();
+
+      $post->categories()->attach([$category_id]);
 
       return redirect()->back()->with('success', 'New post has been created succesfully');
 
@@ -81,17 +77,19 @@ class PostController extends Controller
          'content'=> 'required|min:4',
        ]);
 
-     $title = $request->title;
-     $update_slug = str_slug($title);
+      $title = $request->title;
+      $update_slug = str_slug($title);
+      $category_id = $request->category;
 
-    if($request->has('blog_image')){
-    $cover_image = $request->blog_image->getClientOriginalName();
-    $cover_path = $request->blog_image->storeAs('public', $cover_image);
-    $cover_url =  Storage::url($cover_image);
-} else {
-    $cover_image = $request->image_name;
-    $cover_url = Storage::url($cover_image);
-}
+   if($request->has('blog_image')){
+     $cover_image = $request->blog_image->getClientOriginalName();
+
+     $cover_path = $request->blog_image->storeAs('public', $cover_image);
+          $cover_url =  Storage::url($cover_image);
+      } else {
+          $cover_image = $request->image_name;
+          $cover_url = Storage::url($cover_image);
+      }
          
      $post = Post::find($id);
     	$post->title = $title;
@@ -99,9 +97,10 @@ class PostController extends Controller
       $post->image_name = $cover_image;
       $post->image_url= $cover_url;
       $post->slug = $update_slug;
-    	$post->category_id = $request->category;
 
       $post->save();
+
+      $post->categories()->sync([$category_id]);
 
 
      return redirect()->back()->with('success', 'Post has been updated succesfully');
@@ -112,6 +111,7 @@ class PostController extends Controller
     {
      
       $post = Post::whereSlug($slug)->firstorFail();
+      $post->categories()->detach();
       $post->delete();
 
       return redirect()->back()->with('info', 'Post has been deleted successfully');

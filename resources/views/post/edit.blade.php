@@ -36,8 +36,10 @@
                 <select name="category" id="status">
                   @if($categories->count())
                   @foreach($categories as $category)
-                <option value="{{$category->id}}" {{$post->category_id == $category->id ? 'selected="selected"' : ''}}>{{ $category->title}}</option>
-                    @endforeach
+                  @foreach($post->categories as $post_category)
+                <option value="{{$category->id}}" {{$post_category->pivot->post_category_id == $category->id ? 'selected="selected"' : ''}}>{{ $category->title}}</option>
+                  @endforeach  
+                  @endforeach
                     @endif
                 </select>
                 @if ($errors->has('category'))
