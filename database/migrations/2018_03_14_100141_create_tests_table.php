@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostPivotCategories extends Migration
+class CreateTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreatePostPivotCategories extends Migration
      */
     public function up()
     {
-        Schema::create('post_pivot_categories', function (Blueprint $table) {
+        Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id');
-            $table->integer('post_category_id');
-            $table->timestamps();Exists('post_pivot_categories');
-    }
-}
-
+            $table->timestamps();
         });
     }
 
@@ -31,4 +26,6 @@ class CreatePostPivotCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIf
+        Schema::dropIfExists('tests');
+    }
+}

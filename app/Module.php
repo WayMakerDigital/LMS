@@ -11,7 +11,7 @@ class Module extends Model
     	return $this->belongsTo('App\Course');
     }
     
-    public function topic()
+    public function topics()
     {
     return $this->hasMany('App\Topic');
    }
