@@ -48,18 +48,17 @@
 								</ul>
 							</div>
 								<li>
-							<a href="#subP" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Topics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subP" class="collapse ">
+							<a href="#topics" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Topics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="topics" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/topic/create" class="">Create Topic</a></li>
 									<li><a href="/admin/topics" class="">All Topics</a></li>
 								</ul>
 							</div>
 						</li>
-						</li>
 							<li>
-							<a href="#sub" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Blog</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="sub" class="collapse ">
+							<a href="#blog" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Blog</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="blog" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/post/create" class="">Create Post</a></li>
 									<li><a href="/admin/posts" class="">All Posts</a></li>
@@ -67,6 +66,14 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<a href="#questions" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Questions</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="questions" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/question/create" class="">Create Question</a></li>
+									<li><a href="/admin/questions" class="">All Questions</a></li>
+								</ul>
+							</div>
 						</li>
 					</ul>
 				</nav>

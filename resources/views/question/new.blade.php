@@ -5,7 +5,7 @@
     <div class="container-fluid">
 
         <div class="col-lg-6">
-            <form class="form-vertical" enctype="multipart/form-data" role="form" method="post" action="{{route('upload.post')}}">
+            <form class="form-vertical" role="form" method="post" action="{{route('upload.question')}}">
                 {{csrf_field()}} 
                @if(session('success'))
                 <div class="alert alert-success" role="alert">
@@ -14,7 +14,8 @@
       </button>
                     <strong>{{ session('success')}}</strong>
                 </div>
-                @endif                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                @endif             
+                   <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                     <label for="title" class="control-label">Title</label>
                     <input type="text" name="title" class="form-control" id="name" value="{{old('title')}}"> @if ($errors->has('title'))
                     <span class="help-block">{{ $errors->first('title') }}</span> @endif

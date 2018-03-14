@@ -67,5 +67,13 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::post('/upload/post/category', 'Admin\PostCategoryController@store')->name('upload.post.category');
    Route::get('/posts/categories', 'Admin\PostCategoryController@index');
    Route::delete('/posts/category/{id}', 'Admin\PostCategoryController@destroy')->name('destroy.post.category');
+
+   //creating questions
+   Route::get('question/create', 'Admin\QuestionController@create');
+   Route::get('questions', 'Admin\QuestionController@index');
+   Route::post('questions', 'Admin\QuestionController@store')->name('upload.question');
+   Route::get('question/{id}/edit', 'Admin\QuestionController@edit')->name('edit.question');
+   Route::put('question/{id}/update', 'Admin\QuestionController@update')->name('update.question');
+   Route::delete('question/{id}', 'Admin\QuestionController@delete')->name('destroy.question');
 });
 
