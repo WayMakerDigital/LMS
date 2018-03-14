@@ -12,7 +12,12 @@ class Module extends Model
     }
     
     public function topics()
-    {
-    return $this->hasMany('App\Topic');
+   {
+       return $this->hasMany('App\Topic');
    }
+
+    public function test()
+    {
+       return $this->hasOne('App\Test');
+    }
 }
