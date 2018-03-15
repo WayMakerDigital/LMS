@@ -17,7 +17,7 @@ class CreateQuestionOptionsTable extends Migration
             $table->increments('id');
             $table->integer('question_id')->unsigned();
             $table->string('option_text');
-            $table->integer('correct')->default(0);
+            $table->integer('correct');
             $table->timestamps();
             $table->foreign('question_id')
                   ->references('id')->on('questions')

@@ -16,8 +16,10 @@
                 </div>
                 @endif                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                     <label for="title" class="control-label">Title</label>
-                    <input type="text" name="title" class="form-control" id="name" value="{{old('title')}}"> @if ($errors->has('title'))
-                    <span class="help-block">{{ $errors->first('title') }}</span> @endif
+                    <input type="text" name="title" class="form-control" id="name" value="{{old('title')}}"> 
+                    @if ($errors->has('title'))
+                    <span class="help-block">{{ $errors->first('title') }}</span> 
+                    @endif
                 </div>
             
                 <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
