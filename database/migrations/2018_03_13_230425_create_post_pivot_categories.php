@@ -17,9 +17,7 @@ class CreatePostPivotCategories extends Migration
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('post_category_id');
-            $table->timestamps();Exists('post_pivot_categories');
-    }
-}
+            $table->timestamps();
 
         });
     }
@@ -31,4 +29,7 @@ class CreatePostPivotCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIf
+        Schema::dropIfExists('post_pivot_categories');
+    }
+
+}
