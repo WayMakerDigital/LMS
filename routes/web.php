@@ -75,5 +75,14 @@ Route::group(['middleware'=>'admin', 'prefix'=>'admin'], function(){
    Route::get('question/{id}/edit', 'Admin\QuestionController@edit')->name('edit.question');
    Route::put('question/{id}/update', 'Admin\QuestionController@update')->name('update.question');
    Route::delete('question/{id}', 'Admin\QuestionController@delete')->name('destroy.question');
+
+   //creating tests
+   Route::get('test/create', 'Admin\TestController@create');
+   Route::get('tests', 'Admin\TestController@index');
+   Route::post('tests', 'Admin\TestController@store')->name('upload.test');
+   Route::get('test/{id}/edit', 'Admin\TestController@edit')->name('edit.test');
+   Route::put('test/{id}/update', 'Admin\TestController@update')->name('update.test');
+   Route::delete('test/{id}', 'Admin\TestController@delete')->name('destroy.test');
+
 });
 

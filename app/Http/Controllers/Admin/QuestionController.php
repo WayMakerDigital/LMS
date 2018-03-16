@@ -20,11 +20,18 @@ class QuestionController extends Controller
     {
         return view('question.new');
     }
+
+    public function edit($id)
+    {
+        $question = Question::find($id);
+
+        return view('question.edit', compact('question'));
+    }
     
     public function store(Request $request)
     {
         $this->validate($request, [
-           'question'=>'required'
+           'question'=>'required',
         ]);
 
         $question = Question::create($request->all());
@@ -53,18 +60,27 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
+       $this->validate($request, [
+           'question'=>'required'
+        ]);
 
+        $question = Question::findorFail($id);
+       // dd($question);
+
+        $question->update($request->all());
+
+
+        return redirect()->back()->with('success', 'Question has been updated succesfully');
     }
+
 
     public function delete($id)
     {
       $question = Question::find($id);
 
-      $question->questionOptions()->detach();
-
       $question->delete();
 
-      return redirect()->back()->with('info', 'Post has been deleted successfully');
+      return redirect()->back()->with('info', 'Question has been deleted successfully');
 
     }
 

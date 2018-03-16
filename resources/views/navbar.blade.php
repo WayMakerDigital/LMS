@@ -75,6 +75,15 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<a href="#tests" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Test</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="tests" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/test/create" class="">Create Test</a></li>
+									<li><a href="/admin/tests" class="">All Tests</a></li>
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
