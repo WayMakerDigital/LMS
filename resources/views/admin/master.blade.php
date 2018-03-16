@@ -22,6 +22,8 @@
   <!-- ICONS -->
   <link rel="apple-touch-icon" sizes="76x76" href="{!! asset('beckley/images/webclip.png') !!}">
   <link rel="icon" type="image/png" sizes="96x96" href="{!! asset('beckley/images/favicon.png') !!}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
 </head>
 
 <body>
@@ -32,9 +34,11 @@
 
 <script src="{!! asset('assets/vendor/jquery/jquery.min.js') !!}"></script>
 <script src="{!! asset('assets/vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="{!! asset('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js') !!}"></script>
 <script src="{!! asset('assets/scripts/klorofil-common.js') !!}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
 </body>
 </html>
 

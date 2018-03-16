@@ -35,7 +35,7 @@
                @for($question=1; $question<=4; $question++)
                <div class="form-group{{ $errors->has('option_text') ? ' has-error' : '' }}">
              <label for="score" class="control-label">Option {{$question}}</label>
-               <input type="text" name="option_text_{{$question}}"class="form-control">
+               <input type="text" name="option_text_{{$question}}" class="form-control" value="{{old('option_text')}}">
                     @if ($errors->has('option_text'))
                     <span class="help-block">{{ $errors->first('option_text') }}</span> 
                     @endif

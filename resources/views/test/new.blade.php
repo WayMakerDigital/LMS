@@ -5,7 +5,7 @@
     <div class="container-fluid">
 
         <div class="col-lg-6">
-            <form class="form-vertical" enctype="multipart/form-data" role="form" method="post" action="{{route('upload.post')}}">
+            <form class="form-vertical" role="form" method="post" action="{{route('upload.post')}}">
                 {{csrf_field()}} 
                @if(session('success'))
                 <div class="alert alert-success" role="alert">
@@ -15,33 +15,37 @@
                     <strong>{{ session('success')}}</strong>
                 </div>
                 @endif                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                    <label for="title" class="control-label">Title</label>
-                    <input type="text" name="title" class="form-control" id="name" value="{{old('title')}}"> @if ($errors->has('title'))
-                    <span class="help-block">{{ $errors->first('title') }}</span> @endif
+                    <label for="title" class="control-label">Test Title</label>
+                    <input type="text" name="title" class="form-control" id="name" value="{{old('title')}}"> 
+                    @if ($errors->has('title'))
+                    <span class="help-block">{{ $errors->first('title') }}</span> 
+                    @endif
                 </div>
             
-                <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                    <label for="content" class="control-label">Content</label>
-                    <textarea name="content" class="form-control" id="content">{{old('content')}}</textarea> @if ($errors->has('content'))
-                    <span class="help-block">{{ $errors->first('content') }}</span> @endif
-                </div>
-                <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                    <label for="category" class="control-label">Choose Blog Category</label>
-                    <select name="category" id="status">
-                  @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->title}}</option>
+                <div class="form-group{{ $errors->has('module') ? ' has-error' : '' }}">
+                    <label for="category" class="control-label">Select a module to assign the test to</label>
+                    <select name="module" id="status">
+                  @foreach($modules as $module)
+                    <option value="{{$module->id}}">{{$module->title}}</option>
                     @endforeach
                 </select> 
-                @if ($errors->has('category'))
-                    <span class="help-block">{{ $errors->first('category') }}</span>
+                @if ($errors->has('module'))
+                    <span class="help-block">{{ $errors->first('module') }}</span>
                  @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('cover_image') ? ' has-error' : '' }}">
-                    <label for="cover_image" class="control-label">Choose Blog Image</label>
-                    <input type="file" name="cover_image" class="form-control" id="name"> @if($errors->has('cover_image'))
-                    <span class="help-block">{{ $errors->first('cover_image') }}</span> @endif
+                <div class="form-group{{ $errors->has('questions') ? ' has-error' : '' }}">
+                 <label for="questions" class="control-label">Select the questions that belongs to this test</label>
+                <select class="selectpicker" name="questions" multiple>
+                @foreach($questions as $question)
+                <option value={{$question->id}}>{!! $question->question !!}</option>
+                @endforeach
+                </select>
+                  @if ($errors->has('questions'))
+                    <span class="help-block">{{ $errors->first('questions') }}</span>
+                 @endif
                 </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Create</button>

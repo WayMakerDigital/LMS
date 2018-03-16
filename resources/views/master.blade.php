@@ -17,6 +17,7 @@
   <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
   <link rel="stylesheet" href="{!! asset('assets/css/demo.css') !!}">
  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
   <!-- ICONS -->
@@ -32,6 +33,7 @@
 
 <script src="{!! asset('assets/vendor/jquery/jquery.min.js') !!}"></script>
 <script src="{!! asset('assets/vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="{!! asset('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js') !!}"></script>
 <script src="{!! asset('assets/scripts/klorofil-common.js') !!}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>

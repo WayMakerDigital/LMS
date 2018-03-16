@@ -26,26 +26,26 @@
 									<h3 class="panel-title"></h3>
 								</div>
 								<div class="panel-body">
-								  @if(!count($posts))
-									 <p>There are no posts yet</p>
+								  @if(!count($questions))
+									 <p>There are no questions yet</p>
 									 @else
 									<table class="table table-bordered">
 										<thead>
 											<tr>
-												<th>Title</th>
+												<th>Question</th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
 										</thead>
-									  @foreach($posts as $post)
+									  @foreach($questions as $question)
 										<tbody>
 											<tr>
-												<td>{{$post->title}}</td>
-											<form action="{{route('edit.post', $post->id)}}" method="GET">
+												<td>{!! $question->question !!}</td>
+											<form action="{{route('edit.question', $question->id)}}" method="GET">
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs" ><span class="fa fa-pencil fa-fw"></span></button></p></td>
   </form>
 												
-												<form action="{{route('destroy.post', $post->slug)}}" method="POST">
+												<form action="{{route('destroy.question', $question->id)}}" method="POST">
       {{csrf_field()}}
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>
