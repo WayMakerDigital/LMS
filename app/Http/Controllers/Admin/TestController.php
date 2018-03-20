@@ -30,45 +30,57 @@ class TestController extends Controller
     {
         $test = test::find($id);
 
-        return view('test.edit', compact('test'));
+        $questions = Question::all();
+
+        $modules = Module::all();
+        
+        return view('test.edit', compact('test', 'questions', 'modules'));
     }
     
     public function store(Request $request)
     {
         $this->validate($request, [
-           'test'=>'required',
+           'title'=>'required',
+           'module'=>'required',
+           'questions'=>'required'
         ]);
 
-        $test = Test::create($request->all());
-       
-        $test->questions->attach($question_id);
+        $test = new Test;
+
+        $test->title = $request->title;
+        
+        $test->module_id = $request->module;
+
+        $test->save();
  
-        return redirect()->back()->with('success', 'New Question has been created succesfully');
+        foreach($request->questions as $question_id) {     
+        $test->questions()->attach([$question_id]);
+        };
+ 
+        return redirect()->back()->with('success', 'Test has been created succesfully');
     }
 
     public function update(Request $request, $id)
     {
-       $this->validate($request, [
-           'question'=>'required'
-        ]);
-
-        $question = Question::findorFail($id);
+     
+        $test = Test::findorFail($id);
        // dd($question);
 
-        $question->update($request->all());
+        $test->update($request->all());
 
+        $test->questions()->sync($request->questions);
 
-        return redirect()->back()->with('success', 'Question has been updated succesfully');
+        return redirect()->back()->with('success', 'Test has been updated succesfully');
     }
 
 
     public function delete($id)
     {
-      $question = Question::find($id);
+      $test = Test::find($id);
 
-      $question->delete();
+      $test->delete();
 
-      return redirect()->back()->with('info', 'Question has been deleted successfully');
+      return redirect()->back()->with('info', 'Test has been deleted successfully');
 
     }
 

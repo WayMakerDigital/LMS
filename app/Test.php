@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
+
+    protected $fillable = ['title', 'module_id'];
+    
     public function module()
     {
         return $this->belongsTo('App\Module');
@@ -13,6 +16,6 @@ class Test extends Model
 
     public function questions()
     {
-        return $this->hasMany('App\Question');
+        return $this->belongsToMany('App\Question', 'question_test', 'test_id', 'question_id');
     }
 }
