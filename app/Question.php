@@ -16,6 +16,6 @@ class Question extends Model
 
     public function tests()
     {
-        return $this->hasMany('App\Test');
+        return $this->hasMany('App\Test', 'question_test', 'question_id', 'test_id');
     }
 }
