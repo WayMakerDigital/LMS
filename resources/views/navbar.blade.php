@@ -57,7 +57,7 @@
 							</div>
 						</li>
 							<li>
-							<a href="#blog" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Blog</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#blog" data-toggle="collapse" class="collapsed"><i class="lnr lnr-spell-check"></i> <span>Blog</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="blog" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/post/create" class="">Create Post</a></li>
@@ -67,7 +67,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#questions" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Questions</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#questions" data-toggle="collapse" class="collapsed"><i class="lnr lnr-pencil"></i> <span>Questions</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="questions" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/question/create" class="">Create Question</a></li>
@@ -76,7 +76,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#tests" data-toggle="collapse" class="collapsed"><i class="lnr lnr-text-format"></i> <span>Test</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#tests" data-toggle="collapse" class="collapsed"><i class="lnr lnr-book"></i> <span>Test</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="tests" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/test/create" class="">Create Test</a></li>

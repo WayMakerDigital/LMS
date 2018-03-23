@@ -52,6 +52,7 @@ class PostController extends Controller
       $test = $request->file('cover_image')->getClientOriginalName();
       $path = $request->file('cover_image')->storeAs('public', $test);
       $tests= storage::url($test);
+      $real_url = asset($tests);
      
       $post = new Post; 
 
@@ -59,7 +60,7 @@ class PostController extends Controller
       $post->body_content = $content;
       $post->slug = $slug;
       $post->image_name = $test;
-      $post->image_url= $tests;
+      $post->image_url= $real_url;
 
       $post->save();
 
@@ -86,21 +87,24 @@ class PostController extends Controller
 
      $cover_path = $request->blog_image->storeAs('public', $cover_image);
           $cover_url =  Storage::url($cover_image);
+           $real_url = asset($cover_url);
       } else {
           $cover_image = $request->image_name;
           $cover_url = Storage::url($cover_image);
+          $real_url = asset($cover_url);
+          
       }
          
-     $post = Post::find($id);
-    	$post->title = $title;
-    	$post->body_content = $request->content;
-      $post->image_name = $cover_image;
-      $post->image_url= $cover_url;
-      $post->slug = $update_slug;
+        $post = Post::find($id);
+        $post->title = $title;
+        $post->body_content = $request->content;
+        $post->image_name = $cover_image;
+        $post->image_url= $real_url;
+        $post->slug = $update_slug;
 
-      $post->save();
+        $post->save();
 
-      $post->categories()->sync([$category_id]);
+        $post->categories()->sync([$category_id]);
 
 
      return redirect()->back()->with('success', 'Post has been updated succesfully');

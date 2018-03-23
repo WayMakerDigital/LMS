@@ -49,6 +49,8 @@ class CourseController extends Controller
     $image_name = $request->file('course_image')->getClientOriginalName();
     $path = $request->file('course_image')->storeAs('public', $image_name);
     $image_url= Storage::url($image_name);
+    $real_url = asset($image_url);
+
     $category_id = $request->category;
  
 
@@ -69,7 +71,7 @@ class CourseController extends Controller
        $course->price = $request->course_price;
        $course->start_date = $request->start_date;
        $course->image_name = $image_name;
-       $course->image_url = $image_url;
+       $course->image_url = $real_url;
        $course->preview_url = $request->vimeo_url;
 
        $course->save();
@@ -108,9 +110,11 @@ class CourseController extends Controller
     $cover_image = $request->course_image->getClientOriginalName();
     $cover_path = $request->course_image->storeAs('public', $cover_image);
     $cover_url =  Storage::url($cover_image);
+     $real_url = asset($image_url);
 } else {
     $cover_image = $request->image_name;
     $cover_url = Storage::url($cover_image);
+     $real_url = asset($image_url);
 }
         
        
@@ -135,7 +139,7 @@ class CourseController extends Controller
        $course->price = $request->course_price;
        $course->start_date = $request->start_date;
        $course->image_name = $cover_image;
-       $course->image_url = $cover_url;
+       $course->image_url = $real_url;
        $course->preview_url = $request->vimeo_url;
 
        $course->save();
